@@ -38,7 +38,6 @@ udp_server.on('listening', () => {
     console.log(`server listening ${address.address}:${address.port}`);
 });
 
-
 udp_server.bind(DEFAULT_SSDP_PORT, function () {
     /* https://stackoverflow.com/a/43294234 */
     udp_server.setMulticastLoopback(true); /* NEEDED to allow broadcast packets on the network interface, NodeJS documentation has more info. */
