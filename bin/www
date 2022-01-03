@@ -29,6 +29,7 @@ udp_server.on('message', (msg, rinfo) => {
     setTimeout(function (args) {
         const message = Buffer.from('Some bytes');
         udp_server.send(message, DEFAULT_SSDP_PORT, DEFAULT_SSDP_ADDR);
+        console.log("Sent!");
     }, 1000);
 });
 
