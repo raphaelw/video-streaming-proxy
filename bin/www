@@ -12,6 +12,10 @@ const dgram = require('dgram');
 /**
  * Create UDP Server for SSDP (Advertising/NOTIFY/M-SEARCH)
  */
+
+
+const DEFAULT_SSDP_PORT = 1900; //1900;
+const DEFAULT_SSDP_ADDR = "239.255.255.250";
 const udp_server = dgram.createSocket({ type: 'udp4', reuseAddr: false });
 
 udp_server.on('error', (err) => {
@@ -21,22 +25,25 @@ udp_server.on('error', (err) => {
 
 udp_server.on('message', (msg, rinfo) => {
     console.log(`server got: ${msg} from ${rinfo.address}:${rinfo.port}`);
+
+    setTimeout(function (args) {
+        const message = Buffer.from('Some bytes');
+        udp_server.send(message, DEFAULT_SSDP_PORT, DEFAULT_SSDP_ADDR);
+    }, 1000);
 });
 
 udp_server.on('listening', () => {
     const address = udp_server.address();
     console.log(`server listening ${address.address}:${address.port}`);
-
-    /* https://stackoverflow.com/a/43294234 */
-    udp_server.setMulticastLoopback(true); /* NEEDED to allow broadcast packets; on the network interface, NodeJS documentation has more info. */
-    udp_server.setMulticastTTL(128); /* This is for sending not needed for recieving */
-    udp_server.addMembership('239.255.255.250'); /* add to broadcast-IP UPNP range */
-
-
 });
 
-const DEFAULT_SSDP_PORT = 1900; //1900;
-udp_server.bind(DEFAULT_SSDP_PORT);
+
+udp_server.bind(DEFAULT_SSDP_PORT, function () {
+    /* https://stackoverflow.com/a/43294234 */
+    udp_server.setMulticastLoopback(true); /* NEEDED to allow broadcast packets on the network interface, NodeJS documentation has more info. */
+    udp_server.setMulticastTTL(128); /* This is for sending not needed for recieving */
+    udp_server.addMembership(DEFAULT_SSDP_ADDR); /* add to broadcast-IP UPNP range */
+});
 
 /**
  * Get port from environment and store in Express.
