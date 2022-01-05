@@ -37,8 +37,6 @@ router.all('/control.xml', function(req, res, next) {
     </item>
   </DIDL-Lite>`;
 
-  //const results2 = `<DIDL-Lite xmlns="urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:upnp="urn:schemas-upnp-org:metadata-1-0/upnp/" xmlns:dlna="urn:schemas-dlna-org:metadata-1-0/" xmlns:sec="http://www.sec.co.kr/" xmlns:xbmc="urn:schemas-xbmc-org:metadata-1-0/"><container id="musicdb://" parentID="0" restricted="1" searchable="0"><dc:title>Music Library</dc:title><dc:creator>Unknown</dc:creator><dc:publisher>Unknown</dc:publisher><upnp:genre>Unknown</upnp:genre><upnp:episodeSeason>0</upnp:episodeSeason><xbmc:rating>0.0</xbmc:rating><xbmc:userrating>0</xbmc:userrating><upnp:class>object.container</upnp:class></container><container id="library://video/" parentID="0" restricted="1" searchable="0"><dc:title>Video Library</dc:title><dc:creator>Unknown</dc:creator><dc:publisher>Unknown</dc:publisher><upnp:genre>Unknown</upnp:genre><upnp:episodeSeason>0</upnp:episodeSeason><xbmc:rating>0.0</xbmc:rating><xbmc:userrating>0</xbmc:userrating><upnp:class>object.container</upnp:class></container></DIDL-Lite>`
-
   const m = `<s:Envelope s:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
     <s:Body>
       <u:BrowseResponse xmlns:u="urn:schemas-upnp-org:service:ContentDirectory:1">
