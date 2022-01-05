@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root configId="25947" xmlns="urn:schemas-upnp-org:device-1-0" xmlns:dlna="urn:schemas-dlna-org:device-1-0">
+  <specVersion>
+    <major>1</major>
+    <minor>1</minor>
+  </specVersion>
+  <device>
+    <deviceType>urn:schemas-upnp-org:device:MediaServer:1</deviceType>
+    <friendlyName>KodiRaphael</friendlyName>
+    <manufacturer>XBMC Foundation</manufacturer>
+    <manufacturerURL>http://kodi.tv/</manufacturerURL>
+    <modelDescription>Kodi - Media Server</modelDescription>
+    <modelName>Kodi</modelName>
+    <modelNumber>18.8 (18.8.0) Git:20200727-45686bddb1</modelNumber>
+    <modelURL>http://kodi.tv/</modelURL>
+    <UDN>uuid:52d8c1f0-ceab-dabf-a6a8-0d9b32f7286e</UDN>
+    <presentationURL>http://192.168.2.117:3000/</presentationURL>
+    <dlna:X_DLNADOC xmlns:dlna="urn:schemas-dlna-org:device-1-0">DMS-1.50</dlna:X_DLNADOC>
+    <iconList>
+      <icon>
+        <mimetype>image/png</mimetype>
+        <width>256</width>
+        <height>256</height>
+        <depth>8</depth>
+        <url>images/icon/256.png</url>
+      </icon>
+      <icon>
+        <mimetype>image/png</mimetype>
+        <width>128</width>
+        <height>128</height>
+        <depth>8</depth>
+        <url>images/icon/128.png</url>
+      </icon>
+      <icon>
+        <mimetype>image/png</mimetype>
+        <width>64</width>
+        <height>64</height>
+        <depth>8</depth>
+        <url>images/icon/64.png</url>
+      </icon>
+      <icon>
+        <mimetype>image/png</mimetype>
+        <width>32</width>
+        <height>32</height>
+        <depth>8</depth>
+        <url>images/icon/32.png</url>
+      </icon>
+      <icon>
+        <mimetype>image/png</mimetype>
+        <width>16</width>
+        <height>16</height>
+        <depth>8</depth>
+        <url>images/icon/16.png</url>
+      </icon>
+    </iconList>
+    <serviceList>
+      <service>
+        <serviceType>urn:microsoft.com:service:X_MS_MediaReceiverRegistrar:1</serviceType>
+        <serviceId>urn:microsoft.com:serviceId:X_MS_MediaReceiverRegistrar</serviceId>
+        <SCPDURL>/X_MS_MediaReceiverRegistrar/52d8c1f0-ceab-dabf-a6a8-0d9b32f7286e/scpd.xml</SCPDURL>
+        <controlURL>/X_MS_MediaReceiverRegistrar/52d8c1f0-ceab-dabf-a6a8-0d9b32f7286e/control.xml</controlURL>
+        <eventSubURL>/X_MS_MediaReceiverRegistrar/52d8c1f0-ceab-dabf-a6a8-0d9b32f7286e/event.xml</eventSubURL>
+      </service>
+      <service>
+        <serviceType>urn:schemas-upnp-org:service:ContentDirectory:1</serviceType>
+        <serviceId>urn:upnp-org:serviceId:ContentDirectory</serviceId>
+        <SCPDURL>/ContentDirectory/52d8c1f0-ceab-dabf-a6a8-0d9b32f7286e/scpd.xml</SCPDURL>
+        <controlURL>/ContentDirectory/52d8c1f0-ceab-dabf-a6a8-0d9b32f7286e/control.xml</controlURL>
+        <eventSubURL>/ContentDirectory/52d8c1f0-ceab-dabf-a6a8-0d9b32f7286e/event.xml</eventSubURL>
+      </service>
+      <service>
+        <serviceType>urn:schemas-upnp-org:service:ConnectionManager:1</serviceType>
+        <serviceId>urn:upnp-org:serviceId:ConnectionManager</serviceId>
+        <SCPDURL>/ConnectionManager/52d8c1f0-ceab-dabf-a6a8-0d9b32f7286e/scpd.xml</SCPDURL>
+        <controlURL>/ConnectionManager/52d8c1f0-ceab-dabf-a6a8-0d9b32f7286e/control.xml</controlURL>
+        <eventSubURL>/ConnectionManager/52d8c1f0-ceab-dabf-a6a8-0d9b32f7286e/event.xml</eventSubURL>
+      </service>
+    </serviceList>
+  </device>
+</root>
