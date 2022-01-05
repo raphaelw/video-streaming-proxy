@@ -7,54 +7,6 @@
 var app = require('../app');
 var debug = require('debug')('video-streaming-proxy:server');
 var http = require('http');
-const dgram = require('dgram');
-
-/**
- * Create UDP Server for SSDP (Advertising/NOTIFY/M-SEARCH)
- */
-
-const DEFAULT_SSDP_PORT = 1900; //1900;
-const DEFAULT_SSDP_ADDR = "239.255.255.250";
-const udp_server = dgram.createSocket({ type: 'udp4', reuseAddr: true });
-
-udp_server.on('error', (err) => {
-    console.log(`server error:\n${err.stack}`);
-    udp_server.close();
-});
-
-udp_server.on('message', (msg, rinfo) => {
-    console.log(`server got: ${msg} from ${rinfo.address}:${rinfo.port}`);
-});
-
-udp_server.on('listening', () => {
-    const address = udp_server.address();
-    console.log(`server listening ${address.address}:${address.port}`);
-});
-
-udp_server.bind(DEFAULT_SSDP_PORT, function () {
-    /* https://stackoverflow.com/a/43294234 */
-    udp_server.setMulticastLoopback(true); /* NEEDED to allow broadcast packets on the network interface, NodeJS documentation has more info. */
-    udp_server.setMulticastTTL(128); /* This is for sending not needed for recieving */
-    udp_server.addMembership(DEFAULT_SSDP_ADDR); /* add to broadcast-IP UPNP range */
-});
-
-setInterval(function(){
-    const message_lines = [
-        "NOTIFY * HTTP/1.1"
-        ,"SERVER: Linux/2.6.15.2 UPnP/1.0 Mediaserver/1.0"
-        ,"CACHE-CONTROL: max-age=1800"
-        ,"LOCATION: http://192.168.2.117:3000/description.xml"
-        ,"NTS: ssdp:alive"
-        ,"NT: urn:schemas-upnp-org:service:ConnectionManager:1"
-        ,"USN: uuid:550e8400-e29b-11d4-a716-446655440000::urn:schemas-upnp-org:service:ConnectionManager:1"
-        ,"HOST: 239.255.255.250:1900"
-        ,""
-    ];
-    const message_bytes = message_lines.join("\r\n");
-    const message = Buffer.from(message_bytes);
-    udp_server.send(message, DEFAULT_SSDP_PORT, DEFAULT_SSDP_ADDR);
-    console.log("Sent!");
-}, 1000);
 
 /**
  * Get port from environment and store in Express.
