@@ -30,7 +30,7 @@ router.all('/control.xml', function(req, res, next) {
       <dc:publisher>Unknown</dc:publisher>
       <upnp:genre>Unknown</upnp:genre>
       <upnp:episodeSeason>0</upnp:episodeSeason>
-      <res size="2601836427" protocolInfo="http-get:*:video/mp4:DLNA.ORG_PN=MPEG4_P2_SP_AAC;DLNA.ORG_OP=01;DLNA.ORG_CI=0;DLNA.ORG_FLAGS=01500000000000000000000000000000">http://${this_host}/bunny.mp4</res>
+      <res size="2601836427" protocolInfo="http-get:*:video/mp4:DLNA.ORG_PN=MPEG4_P2_SP_AAC;DLNA.ORG_OP=01;DLNA.ORG_CI=0;DLNA.ORG_FLAGS=01500000000000000000000000000000">http://${this_host}/proxy/funstudio/bunny.mp4</res>
       <xbmc:rating>0.0</xbmc:rating>
       <xbmc:userrating>0</xbmc:userrating>
       <upnp:class>object.item.videoItem</upnp:class>
