@@ -9,6 +9,36 @@ var debug = require('debug')('video-streaming-proxy:server');
 var http = require('http');
 
 /**
+ * SSDP Server
+ */
+
+const SSDP = require('node-ssdp').Server;
+const ssdp_server = new SSDP({
+    location: {
+        port: 3000,
+        path: '/description.xml'
+    }
+});
+
+ssdp_server.addUSN('upnp:rootdevice');
+ssdp_server.addUSN('urn:schemas-upnp-org:device:MediaServer:1');
+ssdp_server.addUSN('urn:schemas-upnp-org:service:ContentDirectory:1');
+ssdp_server.addUSN('urn:schemas-upnp-org:service:ConnectionManager:1');
+
+// start server on all interfaces
+ssdp_server.start()
+  .catch(e => {
+    console.log('Failed to start server:', e)
+  })
+  .then(() => {
+    console.log('Server started.')
+  })
+
+process.on('exit', function(){
+    ssdp_server.stop() // advertise shutting down and stop listening
+})
+
+/**
  * Get port from environment and store in Express.
  */
 
