@@ -9,7 +9,7 @@ var proxy = httpProxy.createProxyServer({});
  */
 
 proxy.on('proxyReq', function(proxyReq, req, res, options) {
-  proxyReq.setHeader('Host', 'distribution.bbb3d.renderfarming.net');
+  proxyReq.setHeader('Host', req.vsp_host_rewrite);
   console.log(proxyReq);
 });
 
@@ -17,7 +17,8 @@ proxy.on('proxyReq', function(proxyReq, req, res, options) {
 router.get('/:studio/:scene', function(req, res, next) {
   //res.send(`req.url: "${req.url}"`);
   req.url = "http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_2160p_60fps_stereo_abl.mp4";
-  return proxy.web(req, res , { target: "http://distribution.bbb3d.renderfarming.net" } );
+  req.vsp_host_rewrite = "distribution.bbb3d.renderfarming.net";
+  return proxy.web(req, res , { target: "http://distribution.bbb3d.renderfarming.net", secure: false } );
 });
 
 module.exports = router;

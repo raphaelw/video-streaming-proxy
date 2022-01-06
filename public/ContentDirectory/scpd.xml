@@ -6,126 +6,225 @@
   </specVersion>
   <actionList>
     <action>
-      <name>GetCurrentConnectionInfo</name>
+      <name>Browse</name>
       <argumentList>
         <argument>
-          <name>ConnectionID</name>
+          <name>ObjectID</name>
           <direction>in</direction>
-          <relatedStateVariable>A_ARG_TYPE_ConnectionID</relatedStateVariable>
+          <relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
         </argument>
         <argument>
-          <name>RcsID</name>
-          <direction>out</direction>
-          <relatedStateVariable>A_ARG_TYPE_RcsID</relatedStateVariable>
+          <name>BrowseFlag</name>
+          <direction>in</direction>
+          <relatedStateVariable>A_ARG_TYPE_BrowseFlag</relatedStateVariable>
         </argument>
         <argument>
-          <name>AVTransportID</name>
-          <direction>out</direction>
-          <relatedStateVariable>A_ARG_TYPE_AVTransportID</relatedStateVariable>
+          <name>Filter</name>
+          <direction>in</direction>
+          <relatedStateVariable>A_ARG_TYPE_Filter</relatedStateVariable>
         </argument>
         <argument>
-          <name>ProtocolInfo</name>
-          <direction>out</direction>
-          <relatedStateVariable>A_ARG_TYPE_ProtocolInfo</relatedStateVariable>
+          <name>StartingIndex</name>
+          <direction>in</direction>
+          <relatedStateVariable>A_ARG_TYPE_Index</relatedStateVariable>
         </argument>
         <argument>
-          <name>PeerConnectionManager</name>
-          <direction>out</direction>
-          <relatedStateVariable>A_ARG_TYPE_ConnectionManager</relatedStateVariable>
+          <name>RequestedCount</name>
+          <direction>in</direction>
+          <relatedStateVariable>A_ARG_TYPE_Count</relatedStateVariable>
         </argument>
         <argument>
-          <name>PeerConnectionID</name>
-          <direction>out</direction>
-          <relatedStateVariable>A_ARG_TYPE_ConnectionID</relatedStateVariable>
+          <name>SortCriteria</name>
+          <direction>in</direction>
+          <relatedStateVariable>A_ARG_TYPE_SortCriteria</relatedStateVariable>
         </argument>
         <argument>
-          <name>Direction</name>
+          <name>Result</name>
           <direction>out</direction>
-          <relatedStateVariable>A_ARG_TYPE_Direction</relatedStateVariable>
+          <relatedStateVariable>A_ARG_TYPE_Result</relatedStateVariable>
         </argument>
         <argument>
-          <name>Status</name>
+          <name>NumberReturned</name>
           <direction>out</direction>
-          <relatedStateVariable>A_ARG_TYPE_ConnectionStatus</relatedStateVariable>
-        </argument>
-      </argumentList>
-    </action>
-    <action>
-      <name>GetProtocolInfo</name>
-      <argumentList>
-        <argument>
-          <name>Source</name>
-          <direction>out</direction>
-          <relatedStateVariable>SourceProtocolInfo</relatedStateVariable>
+          <relatedStateVariable>A_ARG_TYPE_Count</relatedStateVariable>
         </argument>
         <argument>
-          <name>Sink</name>
+          <name>TotalMatches</name>
           <direction>out</direction>
-          <relatedStateVariable>SinkProtocolInfo</relatedStateVariable>
+          <relatedStateVariable>A_ARG_TYPE_Count</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>UpdateID</name>
+          <direction>out</direction>
+          <relatedStateVariable>A_ARG_TYPE_UpdateID</relatedStateVariable>
         </argument>
       </argumentList>
     </action>
     <action>
-      <name>GetCurrentConnectionIDs</name>
+      <name>GetSortCapabilities</name>
       <argumentList>
         <argument>
-          <name>ConnectionIDs</name>
+          <name>SortCaps</name>
           <direction>out</direction>
-          <relatedStateVariable>CurrentConnectionIDs</relatedStateVariable>
+          <relatedStateVariable>SortCapabilities</relatedStateVariable>
+        </argument>
+      </argumentList>
+    </action>
+    <action>
+      <name>GetSystemUpdateID</name>
+      <argumentList>
+        <argument>
+          <name>Id</name>
+          <direction>out</direction>
+          <relatedStateVariable>SystemUpdateID</relatedStateVariable>
+        </argument>
+      </argumentList>
+    </action>
+    <action>
+      <name>GetSearchCapabilities</name>
+      <argumentList>
+        <argument>
+          <name>SearchCaps</name>
+          <direction>out</direction>
+          <relatedStateVariable>SearchCapabilities</relatedStateVariable>
+        </argument>
+      </argumentList>
+    </action>
+    <action>
+      <name>Search</name>
+      <argumentList>
+        <argument>
+          <name>ContainerID</name>
+          <direction>in</direction>
+          <relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>SearchCriteria</name>
+          <direction>in</direction>
+          <relatedStateVariable>A_ARG_TYPE_SearchCriteria</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>Filter</name>
+          <direction>in</direction>
+          <relatedStateVariable>A_ARG_TYPE_Filter</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>StartingIndex</name>
+          <direction>in</direction>
+          <relatedStateVariable>A_ARG_TYPE_Index</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>RequestedCount</name>
+          <direction>in</direction>
+          <relatedStateVariable>A_ARG_TYPE_Count</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>SortCriteria</name>
+          <direction>in</direction>
+          <relatedStateVariable>A_ARG_TYPE_SortCriteria</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>Result</name>
+          <direction>out</direction>
+          <relatedStateVariable>A_ARG_TYPE_Result</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NumberReturned</name>
+          <direction>out</direction>
+          <relatedStateVariable>A_ARG_TYPE_Count</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>TotalMatches</name>
+          <direction>out</direction>
+          <relatedStateVariable>A_ARG_TYPE_Count</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>UpdateID</name>
+          <direction>out</direction>
+          <relatedStateVariable>A_ARG_TYPE_UpdateID</relatedStateVariable>
+        </argument>
+      </argumentList>
+    </action>
+    <action>
+      <name>UpdateObject</name>
+      <argumentList>
+        <argument>
+          <name>ObjectID</name>
+          <direction>in</direction>
+          <relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>CurrentTagValue</name>
+          <direction>in</direction>
+          <relatedStateVariable>A_ARG_TYPE_TagValueList</relatedStateVariable>
+        </argument>
+        <argument>
+          <name>NewTagValue</name>
+          <direction>in</direction>
+          <relatedStateVariable>A_ARG_TYPE_TagValueList</relatedStateVariable>
         </argument>
       </argumentList>
     </action>
   </actionList>
   <serviceStateTable>
     <stateVariable sendEvents="no">
-      <name>A_ARG_TYPE_ProtocolInfo</name>
-      <dataType>string</dataType>
-    </stateVariable>
-    <stateVariable sendEvents="no">
-      <name>A_ARG_TYPE_ConnectionStatus</name>
+      <name>A_ARG_TYPE_BrowseFlag</name>
       <dataType>string</dataType>
       <allowedValueList>
-        <allowedValue>OK</allowedValue>
-        <allowedValue>ContentFormatMismatch</allowedValue>
-        <allowedValue>InsufficientBandwidth</allowedValue>
-        <allowedValue>UnreliableChannel</allowedValue>
-        <allowedValue>Unknown</allowedValue>
-      </allowedValueList>
-    </stateVariable>
-    <stateVariable sendEvents="no">
-      <name>A_ARG_TYPE_AVTransportID</name>
-      <dataType>i4</dataType>
-    </stateVariable>
-    <stateVariable sendEvents="no">
-      <name>A_ARG_TYPE_RcsID</name>
-      <dataType>i4</dataType>
-    </stateVariable>
-    <stateVariable sendEvents="no">
-      <name>A_ARG_TYPE_ConnectionID</name>
-      <dataType>i4</dataType>
-    </stateVariable>
-    <stateVariable sendEvents="no">
-      <name>A_ARG_TYPE_ConnectionManager</name>
-      <dataType>string</dataType>
-    </stateVariable>
-    <stateVariable sendEvents="yes">
-      <name>SourceProtocolInfo</name>
-      <dataType>string</dataType>
-    </stateVariable>
-    <stateVariable sendEvents="yes">
-      <name>SinkProtocolInfo</name>
-      <dataType>string</dataType>
-    </stateVariable>
-    <stateVariable sendEvents="no">
-      <name>A_ARG_TYPE_Direction</name>
-      <dataType>string</dataType>
-      <allowedValueList>
-        <allowedValue>Input</allowedValue>
-        <allowedValue>Output</allowedValue>
+        <allowedValue>BrowseMetadata</allowedValue>
+        <allowedValue>BrowseDirectChildren</allowedValue>
       </allowedValueList>
     </stateVariable>
     <stateVariable sendEvents="yes">
-      <name>CurrentConnectionIDs</name>
+      <name>ContainerUpdateIDs</name>
+      <dataType>string</dataType>
+    </stateVariable>
+    <stateVariable sendEvents="yes">
+      <name>SystemUpdateID</name>
+      <dataType>ui4</dataType>
+    </stateVariable>
+    <stateVariable sendEvents="no">
+      <name>A_ARG_TYPE_Count</name>
+      <dataType>ui4</dataType>
+    </stateVariable>
+    <stateVariable sendEvents="no">
+      <name>A_ARG_TYPE_SortCriteria</name>
+      <dataType>string</dataType>
+    </stateVariable>
+    <stateVariable sendEvents="no">
+      <name>A_ARG_TYPE_SearchCriteria</name>
+      <dataType>string</dataType>
+    </stateVariable>
+    <stateVariable sendEvents="no">
+      <name>SortCapabilities</name>
+      <dataType>string</dataType>
+    </stateVariable>
+    <stateVariable sendEvents="no">
+      <name>A_ARG_TYPE_Index</name>
+      <dataType>ui4</dataType>
+    </stateVariable>
+    <stateVariable sendEvents="no">
+      <name>A_ARG_TYPE_ObjectID</name>
+      <dataType>string</dataType>
+    </stateVariable>
+    <stateVariable sendEvents="no">
+      <name>A_ARG_TYPE_UpdateID</name>
+      <dataType>ui4</dataType>
+    </stateVariable>
+    <stateVariable sendEvents="no">
+      <name>A_ARG_TYPE_Result</name>
+      <dataType>string</dataType>
+    </stateVariable>
+    <stateVariable sendEvents="no">
+      <name>SearchCapabilities</name>
+      <dataType>string</dataType>
+    </stateVariable>
+    <stateVariable sendEvents="no">
+      <name>A_ARG_TYPE_Filter</name>
+      <dataType>string</dataType>
+    </stateVariable>
+    <stateVariable sendEvents="no">
+      <name>A_ARG_TYPE_TagValueList</name>
       <dataType>string</dataType>
     </stateVariable>
   </serviceStateTable>
